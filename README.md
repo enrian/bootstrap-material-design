@@ -2,13 +2,8 @@
 
 ## Usage
 
-Add rails-assets source block to your `Gemfile`:
-
 ```ruby
-source "https://rails-assets.org" do
-  gem "rails-assets-bootstrap-material-design"
-end
-
+gem "rails-bootstrap-material-design"
 ```
 
 Then, import the asset using Sprockets’ `require` directive:
