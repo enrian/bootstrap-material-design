@@ -99,17 +99,33 @@
     },
     "checkbox": function(selector) {
       // Add fake-checkbox to material checkboxes
+      // var $input = $((selector) ? selector : this.options.checkboxElements)
+      //   .filter(":notmdproc")
+      //   .data("mdproc", true)
+      //   .after("<span class='checkbox-material'><span class='check'></span></span>");
+
       var $input = $((selector) ? selector : this.options.checkboxElements)
         .filter(":notmdproc")
+        .filter(function(){ //added this filter to skip checkboxes that were already initialized
+          return $(this).parent().find(".check").length === 0;
+        })
         .data("mdproc", true)
         .after("<span class='checkbox-material'><span class='check'></span></span>");
 
       _toggleTypeFocus($input);
     },
     "togglebutton": function(selector) {
-      // Add fake-checkbox to material checkboxes
+      // Add fake-toggle to material checkboxes
+      // var $input = $((selector) ? selector : this.options.togglebuttonElements)
+      //   .filter(":notmdproc")
+      //   .data("mdproc", true)
+      //   .after("<span class='toggle'></span>");
+
       var $input = $((selector) ? selector : this.options.togglebuttonElements)
         .filter(":notmdproc")
+        .filter(function(){ //added this filter to skip toggles that were already initialized
+          return $(this).parent().find(".toggle").length === 0;
+        })
         .data("mdproc", true)
         .after("<span class='toggle'></span>");
 
